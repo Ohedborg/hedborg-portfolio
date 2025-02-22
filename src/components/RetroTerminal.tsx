@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Text } from "@chakra-ui/react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const MotionBox = motion(Box);

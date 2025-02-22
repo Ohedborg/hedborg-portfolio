@@ -2,7 +2,7 @@
 
 import { Box, Stack, Text, VStack, Link, Icon, HStack, Tag } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FiGithub, FiFigma, FiBookOpen, FiExternalLink } from 'react-icons/fi';
+import { FiGithub, FiFigma, FiExternalLink } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
 import { client } from "@/sanity/lib/client";
 
