@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useScrollState, useScrollValue } from "scrollex";
-import { useAnimationFrame, useMotionValue, useTransform } from "framer-motion";
-import { useEffect } from "react";
+import { useAnimationFrame, useMotionValue, useSpring } from "framer-motion";
 
 type ScrollStatus = "up" | "down" | "static";
 type ScrollDirection = "up" | "down";
@@ -68,12 +67,6 @@ const useScrollPosition = () => {
 //     ([time, pos]: number[]) => time + pos * scrollAccelerationFactor
 //   );
 // };
-
-interface UseClockOptions {
-  defaultValue?: number;
-  reverse?: boolean;
-  speed?: number;
-}
 
 export const useClock = ({ defaultValue = 0, reverse = false, speed = 1 } = {}) => {
   const clock = useMotionValue(defaultValue);

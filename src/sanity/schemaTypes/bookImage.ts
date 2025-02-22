@@ -1,4 +1,4 @@
-export default {
+const bookImage = {
   name: 'bookImage',
   title: 'Book Image',
   type: 'document',
@@ -50,5 +50,10 @@ export default {
       name: 'createdAtDesc',
       by: [{ field: 'createdAt', direction: 'desc' }]
     }
-  ]
-} 
+  ],
+  prepare: (selection: { title: string; media: unknown }) => {
+    return { ...selection }
+  }
+}
+
+export default bookImage 

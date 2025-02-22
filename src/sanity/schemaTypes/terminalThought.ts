@@ -1,4 +1,4 @@
-export default {
+const terminalThought = {
     name: 'terminalThought',
     title: 'Terminal Thought',
     type: 'document',
@@ -32,3 +32,5 @@ export default {
       }
     ]
   }
+
+export default terminalThought
