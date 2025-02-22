@@ -229,7 +229,7 @@ export const Bricks = () => {
           transform="translateX(-50%)"
           mb={4}
           display={isPlaying ? "block" : "none"}
-          touchAction="none" // Prevents default touch behaviors
+          style={{ touchAction: "none" }}
         >
           <canvas
             ref={canvasRef}

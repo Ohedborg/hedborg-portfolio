@@ -3,6 +3,7 @@
 import { Box, Container, HStack, Link, Text, Image } from "@chakra-ui/react";
 import { FaGithub, FaTwitter, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { useEffect, useRef, useState } from 'react';
+import { Bricks } from "./Bricks";
 
 export const Footer = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -144,7 +145,7 @@ export const Footer = () => {
           Made with ♥️ and lots of coffee
         </Text>
         <Box position="relative">
-          {/* <Bricks /> */}
+          <Bricks />
         </Box>
         <Text fontSize="md" color="whiteAlpha.700">
           © 2025 Oliver Hedborg. All rights reserved.

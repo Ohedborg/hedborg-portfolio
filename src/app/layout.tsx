@@ -4,7 +4,7 @@ import * as React from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
-import { Playfair_Display } from 'next/font/google'
+// import { playfair } from 'wherever-it-was-imported';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +15,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-const playfair = Playfair_Display({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
