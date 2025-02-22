@@ -107,4 +107,4 @@ export const Photo = ({ src, alt, onClick, isSelected, title, review, rating, st
       </CameraTarget>
     </Box>
   );
-}; ``
+}; 

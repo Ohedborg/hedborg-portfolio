@@ -1,3 +1,5 @@
+import { Rule } from '@sanity/types';
+
 const bookImage = {
   name: 'bookImage',
   title: 'Book Image',
@@ -31,7 +33,7 @@ const bookImage = {
           {title: 'Bottom Banner', value: 'bottom'}
         ],
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'createdAt',

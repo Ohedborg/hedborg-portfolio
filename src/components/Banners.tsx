@@ -16,24 +16,16 @@ interface BookImage {
   title: string;
   imageUrl: string;
   review: string;
-  rating: number;
-  strengths: string[];
-  weaknesses: string[];
-  finalVerdict: string;
   bannerPosition: 'upper' | 'bottom';
 }
 
-const Photo = ({ src, alt, onClick, isSelected, title, review, rating, strengths, weaknesses, finalVerdict }: {
+const Photo = ({ src, alt, onClick, isSelected, title, review }: {
   src: string;
   alt: string;
   onClick: (target: CameraTargetType | null) => void;
   isSelected?: boolean;
   title: string;
   review: string;
-  rating: number;
-  strengths: string[];
-  weaknesses: string[];
-  finalVerdict: string;
 }) => {
   const targetRef = React.useRef<CameraTargetType>(null);
   const [isVisible, setIsVisible] = React.useState(false);
@@ -209,10 +201,6 @@ export const Banners = () => {
             isSelected={selectedImage?._id === img._id}
             title={img.title}
             review={img.review}
-            rating={img.rating}
-            strengths={img.strengths}
-            weaknesses={img.weaknesses}
-            finalVerdict={img.finalVerdict}
           />
         ))}
       </Flex>

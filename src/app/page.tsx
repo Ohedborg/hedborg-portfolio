@@ -39,7 +39,7 @@ export default function Home() {
             <CareerOverview />
             <RetroJournal entries={journalEntries} />
             <TechProjects />
-            <h1 className="text-4xl font-bold mb-8 text-center">Books I've Enjoyed</h1>
+            <h1 className="text-4xl font-bold mb-8 text-center">Books I Enjoy</h1>
             <div className="h-[80vh] w-full relative overflow-hidden">
               <Camera w="100%" h="100%" bg="black">
                 <Center h="100%" w="100%" position="relative">

@@ -8,6 +8,7 @@ import { FaMicrosoft } from "react-icons/fa";
 import { GoCodeReview } from "react-icons/go";
 import { TbPlugConnected } from "react-icons/tb";
 import { BsBuilding } from "react-icons/bs";
+import { IconType } from 'react-icons';
 
 const MotionBox = motion(Box);
 
@@ -19,7 +20,7 @@ interface Experience {
   location: string;
   description: string;
   highlights: string[];
-  icon: any;
+  icon: IconType;
 }
 
 const experiences: Experience[] = [

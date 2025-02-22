@@ -2,10 +2,12 @@
 
 import * as React from "react";
 import { Box, BoxProps } from "@chakra-ui/react";
-import { motion, useTransform } from "framer-motion";
+import { motion, MotionProps, useTransform } from "framer-motion";
 import * as utils from "@/lib/utils";
 
-const MotionBox = motion(Box);
+// Create a proper type for the MotionBox component
+type MotionBoxProps = Omit<BoxProps, keyof MotionProps> & MotionProps;
+const MotionBox = motion(Box) as React.ComponentType<MotionBoxProps>;
 
 const CameraContext = React.createContext<utils.Camera | null>(null);
     
@@ -17,7 +19,9 @@ export const useCamera = () => {
   return camera;
 };
 
-interface CameraProps extends BoxProps {}
+interface CameraProps extends BoxProps {
+  className?: string;
+}
 
 export const Camera = ({ children, ...otherProps }: CameraProps) => {
   const [camera] = React.useState(() => new utils.Camera());
