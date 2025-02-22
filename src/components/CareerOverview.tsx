@@ -2,7 +2,7 @@
 
 import { Box, Stack, Text, VStack, Divider, Icon, HStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FiCloud, FiDatabase, FiLayers, FiCode, FiServer, FiGitBranch } from 'react-icons/fi';
+import { FiCloud} from 'react-icons/fi';
 import { SiSlack, SiFigma, SiOracle, SiReact, SiNextdotjs, SiTypescript } from 'react-icons/si';
 import { FaMicrosoft } from "react-icons/fa";
 import { GoCodeReview } from "react-icons/go";

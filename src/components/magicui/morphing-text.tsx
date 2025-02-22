@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useRef, useLayoutEffect } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -63,7 +63,9 @@ const useMorphingText = (texts: string[]) => {
     }
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (!text1Ref.current) return;
+    
     let animationFrameId: number;
 
     const animate = () => {
@@ -83,7 +85,7 @@ const useMorphingText = (texts: string[]) => {
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, [doMorph, doCooldown]);
+  }, [doMorph, doCooldown, text1Ref]);
 
   return { text1Ref, text2Ref };
 };

@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from "react";
-import { Box, Center, Flex, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Stack, Text } from "@chakra-ui/react";
 import { Camera, CameraTarget, useCamera } from "@/components/Camera";
 import { Vector, CameraTarget as CameraTargetType } from "@/lib/utils";
 import { useClock } from "@/hooks/camera";
