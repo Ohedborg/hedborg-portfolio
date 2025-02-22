@@ -45,18 +45,22 @@ export const Camera = ({ children, ...otherProps }: CameraProps) => {
 
   return (
     <CameraContext.Provider value={camera}>
-      <MotionBox ref={containerRef} overflow="hidden" {...otherProps}>
-        <MotionBox
-          ref={contentRef}
-          style={{
-            translate,
-            transformOrigin,
-            scale: camera.motionValues.zoom,
-            rotate: camera.motionValues.rotation
-          }}
-        >
-          {children}
-        </MotionBox>
+      <MotionBox as="div" initial={false} overflow="hidden" {...otherProps}>
+        <Box ref={containerRef} position="absolute" inset={0}>
+          <MotionBox
+            as="div"
+            initial={false}
+            ref={contentRef}
+            style={{
+              translate,
+              transformOrigin,
+              scale: camera.motionValues.zoom,
+              rotate: camera.motionValues.rotation
+            }}
+          >
+            {children}
+          </MotionBox>
+        </Box>
       </MotionBox>
     </CameraContext.Provider>
   );
