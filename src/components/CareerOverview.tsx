@@ -108,7 +108,7 @@ export const CareerOverview = () => {
           mb={8}
           fontFamily="mono"
         >
-          > cat career.txt
+          {'>'} cat career.txt
         </Text>
         
         <Stack spacing={8} w="full">
@@ -134,7 +134,7 @@ export const CareerOverview = () => {
                   fontSize="sm"
                   color="whiteAlpha.700"
                 >
-                  > {exp.period}
+                  {'>'} {exp.period}
                 </Text>
               </HStack>
               <Text
@@ -193,7 +193,7 @@ export const CareerOverview = () => {
             mb={6}
             fontFamily="mono"
           >
-            > ls ./skills
+            {'>'} ls ./skills
           </Text>
           <Stack direction="row" flexWrap="wrap" spacing={4}>
             {skills.map((skill, index) => (

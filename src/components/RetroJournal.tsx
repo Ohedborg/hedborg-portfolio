@@ -9,31 +9,18 @@ import { client } from "@/sanity/lib/client";
 const MotionBox = motion(Box);
 
 interface JournalEntry {
-  _id: string;
+  id: string;
+  date: Date;
   title: string;
   content: string;
-  createdAt: string;
 }
 
-export const RetroJournal = () => {
-  const [entries, setEntries] = useState<JournalEntry[]>([]);
+interface RetroJournalProps {
+  entries: JournalEntry[];
+}
+
+export const RetroJournal: React.FC<RetroJournalProps> = ({ entries }) => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchEntries = async () => {
-      const query = `*[_type == "terminalThought"] | order(createdAt desc) {
-        _id,
-        title,
-        content,
-        createdAt
-      }`;
-      
-      const fetchedEntries = await client.fetch<JournalEntry[]>(query);
-      setEntries(fetchedEntries);
-    };
-
-    fetchEntries();
-  }, []);
 
   const getPreviewContent = (content: string) => {
     if (content.length > 250) {
@@ -62,7 +49,7 @@ export const RetroJournal = () => {
         <Stack spacing={8} w="full">
           {entries.map((entry) => (
             <MotionBox
-              key={entry._id}
+              key={entry.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -71,7 +58,7 @@ export const RetroJournal = () => {
               borderColor="whiteAlpha.300"
               pl={4}
               py={2}
-              onClick={() => setExpandedId(expandedId === entry._id ? null : entry._id)}
+              onClick={() => setExpandedId(expandedId === entry.id ? null : entry.id)}
               _hover={{
                 borderColor: "white",
                 transform: "translateX(10px)",
@@ -85,7 +72,7 @@ export const RetroJournal = () => {
                 color="whiteAlpha.700"
                 mb={2}
               >
-                > {format(new Date(entry.createdAt), 'yyyy-MM-dd HH:mm')}
+                {'>'} {format(entry.date, 'yyyy-MM-dd HH:mm')}
               </Text>
               <Text
                 fontSize="xl"
@@ -108,7 +95,7 @@ export const RetroJournal = () => {
                     fontSize="md"
                     lineHeight="1.6"
                   >
-                    {expandedId === entry._id ? entry.content : getPreviewContent(entry.content)}
+                    {expandedId === entry.id ? entry.content : getPreviewContent(entry.content)}
                   </Text>
                   {entry.content.length > 100 && (
                     <Text
@@ -117,7 +104,7 @@ export const RetroJournal = () => {
                       fontSize="sm"
                       fontFamily="mono"
                     >
-                      {expandedId === entry._id ? "< Click to collapse >" : "< Click to expand >"}
+                      {expandedId === entry.id ? "< Click to collapse >" : "< Click to expand >"}
                     </Text>
                   )}
                 </MotionBox>
