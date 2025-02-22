@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Welcome } from "@/components/Welcome";
 import { IntroSequence } from "@/components/IntroSequence";
 import { Center } from "@chakra-ui/react";
@@ -10,6 +10,7 @@ import { RetroJournal } from "@/components/RetroJournal";
 import { TechProjects } from "@/components/TechProjects";
 import { CareerOverview } from "@/components/CareerOverview";
 import { Footer } from "@/components/Footer";
+import { client } from '@/sanity/lib/client'
 
 const journalEntries = [
   {
@@ -26,8 +27,23 @@ const journalEntries = [
   }
 ];
 
+async function getData() {
+  const query = `*[_type == "terminalThought"] | order(createdAt desc)`
+  return await client.fetch(query)
+}
+
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
+  const [terminalThoughts, setTerminalThoughts] = useState<any[]>([]);
+
+  useEffect(() => {
+    getData().then(result => {
+      setTerminalThoughts(result);
+      console.log('Terminal Thoughts:', result);
+    }).catch(error => {
+      console.error('Error fetching terminal thoughts:', error);
+    });
+  }, []);
 
   return (
     <>
@@ -37,7 +53,12 @@ export default function Home() {
           <main className="w-full">
             <Welcome />
             <CareerOverview />
-            <RetroJournal entries={journalEntries} />
+            <RetroJournal entries={terminalThoughts.map(thought => ({
+              id: thought._id,
+              date: new Date(thought.createdAt),
+              title: thought.title,
+              content: thought.content
+            }))} />
             <TechProjects />
             <h1 className="text-4xl font-bold mb-8 text-center">Books I Enjoy</h1>
             <div className="h-[80vh] w-full relative overflow-hidden">
