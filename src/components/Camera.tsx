@@ -5,11 +5,6 @@ import { Box, BoxProps } from "@chakra-ui/react";
 import { motion, MotionProps, useTransform } from "framer-motion";
 import * as utils from "@/lib/utils";
 
-// Update the MotionBox type definition
-type Merge<P, T> = Omit<P, keyof T> & T;
-type MotionBoxProps = Merge<BoxProps, MotionProps>;
-const MotionBox = motion(Box) as React.ComponentType<MotionBoxProps>;
-
 const CameraContext = React.createContext<utils.Camera | null>(null);
     
 export const useCamera = () => {
@@ -20,7 +15,7 @@ export const useCamera = () => {
   return camera;
 };
 
-interface CameraProps extends Omit<MotionBoxProps, 'transition'> {
+interface CameraProps extends Omit<BoxProps & MotionProps, 'transition'> {
   className?: string;
 }
 
