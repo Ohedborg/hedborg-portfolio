@@ -73,7 +73,7 @@ export const Welcome = () => {
             letterSpacing="wide"
             mb={1}
           >
-            Hello, I'm
+            Hello, I&apos;m
           </Text>
           <Text
             fontSize={{ base: "4xl", md: "7xl" }}
@@ -140,7 +140,7 @@ export const Welcome = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           lineHeight="tall"
         >
-          Brew-obsessed Tech Nerd turned Solution Architect, fueled by big ideas and bigger espresso shots. Outside the daily data-wrangling, you'll catch me running off the jitters, devouring books, cooking, and cherishing family time.
+          Brew-obsessed Tech Nerd turned Solution Architect, fueled by big ideas and bigger espresso shots. Outside the daily data-wrangling, you&apos;ll catch me running off the jitters, devouring books, cooking, and cherishing family time.
         </MotionText>
       </Stack>
     </Flex>

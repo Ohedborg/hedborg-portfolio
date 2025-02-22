@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useScrollState, useScrollValue } from "scrollex";
-import { useAnimationFrame, useMotionValue, useSpring } from "framer-motion";
+import { useAnimationFrame, useMotionValue } from "framer-motion";
 
 type ScrollStatus = "up" | "down" | "static";
 type ScrollDirection = "up" | "down";
@@ -92,4 +92,9 @@ export const useClock = ({ defaultValue = 0, reverse = false, speed = 1 } = {}) 
       paused.current = false;
     }
   };
+};
+
+// Remove unused hooks or mark them as exported if they'll be used later
+export const useCamera = () => {
+  // ... existing code ...
 };

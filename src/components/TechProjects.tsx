@@ -68,7 +68,7 @@ export const TechProjects = () => {
           mb={8}
           fontFamily="mono"
         >
-          > ./list-projects
+          {'>'} View Project
         </Text>
         
         <Stack spacing={12} w="full">

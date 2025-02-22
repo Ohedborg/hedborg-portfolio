@@ -3,8 +3,7 @@
 import { Box, Stack, Text, VStack } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { format } from 'date-fns';
-import { useEffect, useState } from 'react';
-import { client } from "@/sanity/lib/client";
+import { useState } from 'react';
 
 const MotionBox = motion(Box);
 

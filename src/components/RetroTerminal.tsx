@@ -18,7 +18,7 @@ const commands = [
 
 export const RetroTerminal = () => {
   const [currentLine, setCurrentLine] = useState(0);
-  const controls = useAnimation();
+  // const controls = useAnimation();
 
   useEffect(() => {
     const typeLines = async () => {
