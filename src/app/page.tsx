@@ -12,29 +12,23 @@ import { CareerOverview } from "@/components/CareerOverview";
 import { Footer } from "@/components/Footer";
 import { client } from '@/sanity/lib/client'
 
-const journalEntries = [
-  {
-    id: "1",
-    date: new Date('2024-01-15T20:30:00'),
-    title: "On Building Digital Gardens",
-    content: "Started working on this digital space. A place for books, thoughts, and code experiments. Sometimes the best projects are the ones we build for ourselves."
-  },
-  {
-    id: "2",
-    date: new Date('2024-01-10T18:15:00'),
-    title: "API Musings",
-    content: "Been tinkering with some new API patterns. There's something satisfying about crafting clean, intuitive interfaces. More to come on this..."
-  }
-];
+// Define the type for terminal thoughts from Sanity
+interface TerminalThought {
+  _id: string;
+  _type: 'terminalThought';
+  title: string;
+  content: string;
+  createdAt: string;
+}
 
 async function getData() {
   const query = `*[_type == "terminalThought"] | order(createdAt desc)`
-  return await client.fetch(query)
+  return await client.fetch<TerminalThought[]>(query)
 }
 
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
-  const [terminalThoughts, setTerminalThoughts] = useState<any[]>([]);
+  const [terminalThoughts, setTerminalThoughts] = useState<TerminalThought[]>([]);
 
   useEffect(() => {
     getData().then(result => {
